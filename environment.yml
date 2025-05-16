@@ -1,4 +1,4 @@
-name: rapids-23.02
+name: LHD
 channels:
   - pytorch
   - nvidia
@@ -457,4 +457,3 @@ dependencies:
   - zstd=1.5.2=h3eb15da_6
   - pip:
     - treelite-runtime==3.1.0
-prefix: /root/anaconda3/envs/rapids-23.02
