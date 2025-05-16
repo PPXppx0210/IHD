@@ -56,10 +56,10 @@ def analyse_distribution(data):
         print(np.percentile(data, i*10))
 
 
-# 4. 生成话题通道
+# 4. generate graph
 
 # 4-1. Prepare input from TopicGPT
-result_filepath = "/data/Twitter-Huangxin/output/result_twitter.jsonl"
+result_filepath = "/topicGPT/data/output/Twitter-Huangxin/result_twitter.jsonl"
 regex_pattern = r'^\[1\] (.+?): (.+?) \| Confidence: (\d+)'
 
 miss_cnt = 0
@@ -98,17 +98,6 @@ def generate_interest_cascades_nomapping(data_dict: list):
         if elem[0] not in interest_cascades: interest_cascades[elem[0]] = []
         interest_cascades[elem[0]].append((elem[1], int(elem[2])))
     logger.info(f"1-interest_cascades: {len(interest_cascades)}")
-    
-    # remove minor interests
-    # interest_cascades_cp = interest_cascades.copy()
-    # for t, cascades in interest_cascades_cp.items():
-    #     if len(cascades) < 10:
-    #         interest_cascades.pop(t)
-    # logger.info(f"2-interest_cascades: {len(interest_cascades)}")
-
-    # logger.info("Keys in interest_cascades:")
-    # for key in interest_cascades.keys():
-    #     logger.info(key)
 
     # sort by timestamp
     for t in interest_cascades:

@@ -128,7 +128,6 @@ class DataConstruct(object):
         self.shuffle = shuffle
         self.append_EOS = append_EOS
 
-        # u2idx_filepath, idx2u_filepath = f"{dataset_dirpath}/u2idx.data", f"{dataset_dirpath}/idx2u.data"
         u2idx_filepath, idx2u_filepath = f"{dataset_dirpath}/u2idx.data", f"{dataset_dirpath}/idx2u.data"
         train_data_filepath, valid_data_filepath, test_data_filepath = f"{dataset_dirpath}/train.data", f"{dataset_dirpath}/valid.data", f"{dataset_dirpath}/test.data"
         if not load_dict:
@@ -144,8 +143,8 @@ class DataConstruct(object):
                 self._u2idx = pickle.load(handle)
             with open(idx2u_filepath, 'rb') as handle:
                 self._idx2u = pickle.load(handle)
-            self.user_size = self._idx2u[-1] + 1
-            # self.user_size = len(self._u2idx)
+            # self.user_size = self._idx2u[-1] + 1
+            self.user_size = len(self._u2idx)
             logger.info(f"User Size={self.user_size}")
         
         use_u2idx = dataset_dirpath.split('/')[-1] == 'Weibo-Aminer'
@@ -153,12 +152,6 @@ class DataConstruct(object):
         self._train_data, _train_data_len = self._readCascadeFromFile2(train_data_filepath, min_user=2, max_user=500, use_u2idx=use_u2idx)
         self._valid_data, _valid_data_len = self._readCascadeFromFile2(valid_data_filepath, min_user=2, max_user=500, use_u2idx=use_u2idx)
         self._test_data,  _test_data_len  = self._readCascadeFromFile2(test_data_filepath,  min_user=2, max_user=500, use_u2idx=use_u2idx)
-        # print('len of _train_data:', len(self._train_data))
-        # print('len of _valid_data:', len(self._valid_data))
-        # print('len of _test_data:', len(self._test_data))
-        logger.info("len of _train_data: %s", len(self._train_data))
-        logger.info("len of _valid_data: %s", len(self._valid_data))
-        logger.info("len of _test_data: %s", len(self._test_data))
         cascades_len = len(self._train_data) + len(self._valid_data) + len(self._test_data)
         self.idx = [i for i in range(cascades_len)]
 

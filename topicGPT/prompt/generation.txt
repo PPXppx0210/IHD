@@ -1,0 +1,46 @@
+You will receive a batch of documents and a set of top-level topics from a topic hierarchy. Your task is to identify generalizable topics for each document that can act as top-level topics in the hierarchy.
+Process each document independently and generate topics for it.
+
+Additionally, for each assignment, provide a confidence score between 0 and 9, where:
+- A score of 9 indicates very high confidence in the topic’s relevance to the document.
+- A score of 0 indicates very low confidence in the topic’s relevance to the document.
+
+[Top-level topics]
+{Topics}
+
+[Examples]
+Example 1: Adding "Agriculture"
+Document:
+Saving Essential American Sailors Act or SEAS Act - Amends the Moving Ahead for Progress in the 21st Century Act (MAP-21) to repeal the Act’s repeal of the agricultural export requirements that: (1) 25% of the gross tonnage of certain agricultural commodities or their products exported each fiscal year be transported on U.S. commercial vessels, and (2) the Secretary of Transportation (DOT) finance any increased ocean freight charges incurred in the transportation of such items. Revives and reinstates those repealed requirements to read as if they were never repealed.
+Your response:
+Agriculture: Mentions policies relating to agricultural practices and products | confidence: 8
+
+Example 2: Duplicate "Trade", returning the existing topic
+Document:
+Amends the Harmonized Tariff Schedule of the United States to suspend temporarily the duty on mixtures containing Fluopyram.
+Your response:
+Trade: Mentions the exchange of capital, goods, and services | Confidence: 5
+
+[Instructions]
+Step 1: For each document in the batch, determine topics mentioned in the document.
+- The topic labels must be as GENERALIZABLE as possible. They must not be document-specific.
+- The topics must reflect a SINGLE topic instead of a combination of topics.
+- The new topics must have a level number, a short general label, and a topic description.
+- The topics must be broad enough to accommodate future subtopics.
+
+Step 2: For each document, perform ONE of the following operations:
+1. If there are already duplicates or relevant topics in the hierarchy, output those topics for the
+document.
+2. If the document contains no topic, return "None".
+3. Otherwise, add your topic as a top-level topic for the document. Stop here and output the added
+topic(s). DO NOT add any additional levels.
+4. For each document, provide a separate response in the required format. Do not merge or group
+responses for multiple documents, even if they appear similar or discuss the same topic.
+
+[Batch of Documents]
+{Document_Batch}
+
+Please process each document separately. For each document, return the relevant or modified topics at the top level in the hierarchy. Your response should be in the following format:
+Topic Label: Topic Description | Confidence: Confidence Value
+
+response:

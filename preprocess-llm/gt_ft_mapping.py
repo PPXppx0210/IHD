@@ -56,11 +56,10 @@ def analyse_distribution(data):
         print(np.percentile(data, i*10))
 
 
-# 1. 抽取话题
 ### start of 1 ###
-result_filepath = "/data/Twitter-Huangxin/output/result_twitter.jsonl"
+result_filepath = "/topicGPT/data/output/twitter/result_twitter.jsonl"
 
-regex_pattern = r'^\[1\] (.+?): (.+?) \| Confidence: (\d+)'
+regex_pattern = r'^(.+?): (.+?) \| Confidence: (\d+)'
 
 miss_cnt = 0
 generated_topics = {}
@@ -75,7 +74,6 @@ with open(result_filepath, 'r') as f:
         if match:
             category = match.group(1)
             # description = match.group(2)
-            # quote = match.group(3)
             confidence = match.group(3)
 
             if category not in generated_topics: generated_topics[category] = {"count": 0}
