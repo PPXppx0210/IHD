@@ -7,7 +7,6 @@ A deep learning model for predicting information diffusion in social networks us
 
 ## Installation
 ```bash
-```bash
 conda env create -f environment.yml
 conda activate LHD
 ```
