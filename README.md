@@ -1,5 +1,5 @@
-# LHD: A LLM-Aided Heterogeneous Diffusion Model
-A deep learning model for predicting information diffusion in social networks using LLM-aided interest-aware heterogeneous diffusion graphs.
+# IHD: An Interest-aware Heterogeneous Diffusion Model
+A deep learning model for predicting information diffusion in social networks using interest-aware heterogeneous diffusion graphs (IHDGs).
 
 ## Features
 - Integrates large language models (LLMs) for topic classification
