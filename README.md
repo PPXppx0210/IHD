@@ -8,7 +8,7 @@ A deep learning model for predicting information diffusion in social networks us
 ## Installation
 ```bash
 conda env create -f environment.yml
-conda activate LHD
+conda activate IHD
 ```
 
 ## Usage
@@ -22,14 +22,14 @@ cd topicGPT
 #### 2. Constructing IHDGs
 ```bash
 cd preprocess-llm
-python gt_ft_mapping.py
-python IHDG_constructing.py
+python preprocess_twitter.py --param 6
+python preprocess_weibo.py --param 6
 ```
 
 #### 3. Interest-aware User Representation Learning
 ```bash
 cd src
-nohup python train_series.py --model lhd --tensorboard-log lhd-tw-basic_1 --graph-filename full --window-size 7 --graph-topk 20 --dataset Twitter-Huangxin --batch-size 32 --hidden-units 16,16 --heads 4,4 --gpu cuda:8 &> lhd-tw-basic_1.txt &
+python train_series.py --model heteredgegat --tensorboard-log IHD-tw-basic_1 --graph-filename full --window-size 7 --tw-version 6 --dataset Twitter-Huangxin --batch-size 32 --hidden-units 16,16 --heads 4,4 --gpu cuda:7
 ```
 
 ## Acknowledgments
