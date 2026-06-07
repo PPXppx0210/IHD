@@ -1,9 +1,9 @@
 You will receive a batch of documents and a set of top-level topics from a topic hierarchy. Your task is to identify generalizable topics for each document that can act as top-level topics in the hierarchy.
 Process each document independently and generate topics for it.
 
-Additionally, for each assignment, provide a confidence score between 0 and 9, where:
-- A score of 9 indicates very high confidence in the topic’s relevance to the document.
-- A score of 0 indicates very low confidence in the topic’s relevance to the document.
+Additionally, for each assignment, provide a confidence score between 1 and 10, where:
+- A score of 10 indicates very high confidence in the topic’s relevance to the document.
+- A score of 1 indicates very low confidence in the topic’s relevance to the document.
 
 [Top-level topics]
 {Topics}
