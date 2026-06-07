@@ -1,4 +1,4 @@
-name: LHD
+name: IHD
 channels:
   - pytorch
   - nvidia
